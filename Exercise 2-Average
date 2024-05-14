@@ -1,0 +1,61 @@
+//Nodalo Rachel
+
+class Weight {
+  private int[] data;// Constructor that initializes the data array with the same values as the input array.
+  public Weight(int[] init) {
+    data = new int[init.length];// Create a new array data with the same length as the 'init' array.
+
+    for (int j = 0; j < init.length; j++) {
+      data[j] = init[j];
+    }//Copy each element from the init array to the data array.
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("[");// Converts the array 'data' into a string representation.
+    
+    for (int i = 0; i < data.length; i++) {
+      sb.append(data[i]);
+      
+      // Add a comma and space after each element except the last one.
+      if (i < data.length - 1) {
+        sb.append(", ");
+      }
+    }
+    sb.append("]");
+    
+    // Return the final string representation of the 'data' array.
+    return sb.toString();
+  }
+
+  // Method to calculate the average of the elements in the 'data' array using integer math.
+  public int average() {
+    int sum = 0;
+
+    // Sum all elements in the 'data' array.
+    for (int i = 0; i < data.length; i++) {
+      sum += data[i];
+    }
+
+    // Return the integer average.
+    return sum / data.length;
+  }
+}
+
+public class WeightTester {
+  public static void main(String[] args) {
+    // Create an array of integers representing weights.
+    int[] values = { 98, 99, 98, 99, 100, 101, 102, 100, 104, 105,
+                     105, 106, 105, 103, 104, 103, 105, 106, 107, 106,
+                     105, 105, 104, 104, 103, 102, 102, 101, 100, 102 };
+    Weight june = new Weight(values);// // Create a Weight object using the 'values' array.
+    
+    // Calculate the average of the weights.
+    int avg = june.average();
+    System.out.println("average = " + avg); // Print the average.
+    
+    int[] easyValues = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    Weight easyWeight = new Weight(easyValues);
+    System.out.println("average (easyValues) = " + easyWeight.average());
+  }// Additional test with easily computed average. Average should be 55
+}

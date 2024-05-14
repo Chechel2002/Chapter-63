@@ -1,0 +1,35 @@
+//Nodalo Rachel
+class Weight {
+  private int[] data;
+
+  public Weight(int[] init) {
+    data = new int[init.length];
+
+    for (int j = 0; j < init.length; j++) {
+      data[j] = init[j];
+    }// initializes the data array with the same length as init.
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();//StringBuilder is used to build the string
+    sb.append("[");
+    for (int i = 0; i < data.length; i++) {
+      sb.append(data[i]);
+      if (i < data.length - 1) {
+        sb.append(", ");//The for loop iterates over the data array and appends each element to the StringBuilder, adding a comma and space between elements except after the last element.
+      }
+    }
+    sb.append("]");
+    return sb.toString();
+  }
+}
+
+public class WeightTester {
+  public static void main(String[] args) {
+    int[] values = { 98, 99, 98, 99, 100, 101, 102, 100, 104, 105,
+                     105, 106, 105, 103, 104, 103, 105, 106, 107, 106,
+                     105, 105, 104, 104, 103, 102, 102, 101, 100, 102 };
+    Weight june = new Weight(values);
+    System.out.println(june);
+  }
+}//The result is a string representation of the data array enclosed in square brackets.
